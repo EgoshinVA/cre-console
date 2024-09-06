@@ -2,19 +2,16 @@ import styled from "styled-components";
 import {Link} from "./Link.styled";
 
 export const Box = styled.div`
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  
-  button {
-    cursor: pointer;
+  width: 300px;
+  height: 350px;
+  border-radius: 15px;
+  background-color: white;
+  margin: 20vh auto;
+
+  button + button {
+    margin-left: 10px;
   }
   
-  ${Link} {
-    cursor: zoom-in;
-  }
   
   @media ${({theme})=> theme.media.tablet} {
     flex-direction: column;

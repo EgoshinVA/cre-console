@@ -1,31 +1,24 @@
 import React from 'react';
 import './App.css';
-import Accordion from "./components/Accordion/Accordion";
-import User from "./components/User/User";
-import Rating from "./components/Rating/Rating";
-import styled from "styled-components";
-import {StyledBtn} from "./components/Styled/Button.styled";
-import {Link} from "./components/Styled/Link.styled";
 import {Box} from "./components/Styled/Box.styled";
-import {Menu} from "./components/Styled/Menu.styled";
-
+import styled from "styled-components";
+import Rectangle from './image/Rectangle.png'
+import {RectangleImageStyled} from "./components/Styled/RectangleImage.styled";
+import {TitleAppStyled} from "./components/Styled/TitleApp.styled";
+import {AppTextStyled} from "./components/Styled/AppText.styled";
+import {StyledBtn} from "./components/Styled/Button.styled";
 
 function App() {
     return (
-        <div>
-
-        </div>
+            <Box>
+                <RectangleImageStyled src={Rectangle} alt='rectangle'/>
+                <TitleAppStyled>Headline</TitleAppStyled>
+                <AppTextStyled>Faucibus. Faucibus. Sit sit sapien sit tempusrisu ut. Sit molestie ornare in venen.</AppTextStyled>
+                <StyledBtn>See more</StyledBtn>
+                <StyledBtn outlined>Save</StyledBtn>
+            </Box>
     );
 }
 
-type AppTitlePropsType = {
-    title: string
-}
-
-function AppTitle(props: AppTitlePropsType) {
-    return (
-        <h1>{props.title}</h1>
-    )
-}
 
 export default App;
