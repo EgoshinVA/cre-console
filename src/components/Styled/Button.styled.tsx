@@ -1,29 +1,40 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import {MyAnimation} from "./animations/Animations";
 
-export const StyledBtn = styled.button`
+type StyledBtnPropsType = {
+    color?: string
+    fontSize?: string
+    outlined?: boolean
+    primary?: boolean
+}
+
+export const StyledBtn = styled.button<StyledBtnPropsType>`
   border: none;
-  background-color: blueviolet;
+  border-radius: 10px;
+  background-color: ${props => props.color || '#5ddcdc'};
   padding: 10px 20px;
   color: aquamarine;
-  font-size: 2rem;
+  font-size: ${props => props.fontSize || '2rem'};
   font-weight: bold;
 
   &:hover {
-    background-color: #38006f;
+    background-color: #1963a9;
   }
 
-  &:last-child {
-    background-color: #303d19;
-  }
-`
+  ${props => props.outlined && css<StyledBtnPropsType>`
+    border: 2px solid ${props => props.color || '#5ddcdc'};
+    color: ${props => props.color || '#5ddcdc'};
+    background-color: transparent;
 
-export const SuperButton = styled(StyledBtn)`
-  border-radius: 5px;
-  background-color: darkolivegreen;
-  
-  &:hover {
-    animation: ${MyAnimation} 2s;
-  }
-  
+    &:hover {
+      border-color: #1963a9;
+      color: #1963a9;
+      background-color: transparent;
+    }
+  `}
+
+  ${props => props.primary && css<StyledBtnPropsType>`
+    background-color: ${props => props.color || '#5ddcdc'};
+    color: snow;
+  `}
 `
