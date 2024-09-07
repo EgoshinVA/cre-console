@@ -11,14 +11,17 @@ export const StyledBtn = styled.button<StyledBtnPropsType>`
   padding: 5px 20px;
   margin-top: 10px;
   margin-left: 20px;
-  font-family: Inter;
   font-weight: 700;
   color: white;
   background-color: #4E71FE;
+
+  &:hover{
+    cursor: pointer;
+  }
   
   ${props => props.outlined && css<StyledBtnPropsType>`
     background-color: transparent;
-    color: #4E71FE
-  `}
+    color: #4E71FE;
+  `},
 ;
 `
