@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/cre-console/static/css/main.31d6cfe0.css",
+    "main.js": "/cre-console/static/js/main.c588d95b.js",
+    "static/js/453.9b13f5dd.chunk.js": "/cre-console/static/js/453.9b13f5dd.chunk.js",
+    "static/media/Rectangle.png": "/cre-console/static/media/Rectangle.2a71526180da1dc06c7d.png",
+    "index.html": "/cre-console/index.html",
+    "main.c588d95b.js.map": "/cre-console/static/js/main.c588d95b.js.map",
+    "453.9b13f5dd.chunk.js.map": "/cre-console/static/js/453.9b13f5dd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.c588d95b.js"
+  ]
+}
