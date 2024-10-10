@@ -5,7 +5,7 @@ type AccordionPropsType = {
     collapsed: boolean
 }
 
-function Accordion(props: AccordionPropsType) {
+export const Accordion = (props: AccordionPropsType) => {
     return (
         <div>
             <AccordionTitle title={props.title}/>
@@ -18,7 +18,7 @@ type AccordionTitlePropsType = {
     title: string
 }
 
-function AccordionTitle(props: AccordionTitlePropsType) {
+const AccordionTitle = (props: AccordionTitlePropsType) => {
     return (
         <div>
             <h3>{props.title}</h3>
@@ -26,7 +26,7 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     )
 }
 
-function AccordionBody() {
+const AccordionBody = () => {
     return (
         <div>
             <ul>
@@ -37,5 +37,3 @@ function AccordionBody() {
         </div>
     )
 }
-
-export default Accordion

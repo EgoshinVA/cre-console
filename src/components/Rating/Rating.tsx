@@ -1,18 +1,17 @@
 import React from "react";
 
 type RatingPropsType = {
-    starsCount: number
+    starsCount: 0 | 1 | 2 | 3 | 4 | 5
 }
 
 function Rating(props: RatingPropsType) {
-
     return (
         <div>
-            <Star selected={true}/>
-            <Star selected={true}/>
-            <Star selected={true}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
+            <Star selected={props.starsCount >= 1}/>
+            <Star selected={props.starsCount >= 2}/>
+            <Star selected={props.starsCount >= 3}/>
+            <Star selected={props.starsCount >= 4}/>
+            <Star selected={props.starsCount >= 5}/>
         </div>
     )
 }
