@@ -1,16 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
 
-type OnOffPropsType = {
-    isOn: boolean
-}
+export const OnOff: React.FC = () => {
+    const [isOn, setIsOn] = useState<boolean>(true)
 
-export const OnOff: React.FC<OnOffPropsType> = (props) => {
+    const changeIsON = () => {
+        setIsOn(!isOn)
+    }
+
     return (
         <StyledOnOff>
-            <On isOn={props.isOn}>On</On>
-            <Off isOn={props.isOn}>Off</Off>
-            <Light isOn={props.isOn}></Light>
+            <On onClick={changeIsON} isOn={isOn}>On</On>
+            <Off onClick={changeIsON} isOn={isOn}>Off</Off>
+            <Light isOn={isOn}></Light>
         </StyledOnOff>
     );
 };
@@ -20,21 +22,23 @@ type StyledType = {
 }
 
 const StyledOnOff = styled.div`
-  display: flex
+  display: flex;
+  gap: 5px;
 `
-const On = styled.div<StyledType>`
+const On = styled.button<StyledType>`
   width: 30px;
   height: 20px;
   background-color: ${props => props.isOn && 'greenyellow'};
 `
-const Off = styled.div<StyledType>`
+const Off = styled.button<StyledType>`
   width: 30px;
   height: 20px;
   background-color: ${props => !props.isOn && 'red'};
 `
 const Light = styled.div<StyledType>`
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background-color: ${props => props.isOn ? 'greenyellow' : 'red'};
+  border: black 2px solid;
 `

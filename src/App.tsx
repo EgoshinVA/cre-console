@@ -1,16 +1,17 @@
 import React from 'react';
 import './App.css';
-import {Accordion} from "./components/Accordion/Accordion";
-import Rating from "./components/Rating/Rating";
 import {OnOff} from "./components/onOff/OnOff";
+import {SelfControlAccordion} from "./components/Accordion/SelfControlAccordion";
+import {SelfControlRating} from "./components/Rating/SelfControlRating";
 
 function App() {
+    console.log('render app')
     return (
         <div>
-            <Accordion title={'Menu'} collapsed={true}/>
-            <Accordion title={'Users'} collapsed={false}/>
-            <Rating starsCount={2}/>
-            <OnOff isOn={true}/>
+            <SelfControlAccordion title={'Menu'}/>
+            <SelfControlAccordion title={'Users'}/>
+            <SelfControlRating/>
+            <OnOff/>
         </div>
     );
 }
