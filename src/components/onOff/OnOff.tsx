@@ -1,17 +1,16 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 
-export const OnOff: React.FC = () => {
-    const [isOn, setIsOn] = useState<boolean>(true)
+type OnOffPropsType = {
+    isOn: boolean
+    changeIsON: (value: boolean) => void
+}
 
-    const changeIsON = () => {
-        setIsOn(!isOn)
-    }
-
+export const OnOff: React.FC<OnOffPropsType> = ({isOn, changeIsON}) => {
     return (
         <StyledOnOff>
-            <On onClick={changeIsON} isOn={isOn}>On</On>
-            <Off onClick={changeIsON} isOn={isOn}>Off</Off>
+            <On onClick={() => changeIsON(true)} isOn={isOn}>On</On>
+            <Off onClick={() => changeIsON(false)} isOn={isOn}>Off</Off>
             <Light isOn={isOn}></Light>
         </StyledOnOff>
     );
