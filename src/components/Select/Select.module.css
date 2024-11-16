@@ -1,0 +1,24 @@
+.select {
+    background-color: #606060;
+    color: #d7d6d6;
+    width: 200px;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.select:hover {
+    background-color: #252525;
+    cursor: pointer;
+}
+
+.selectItem {
+    background-color: #3f3f3f;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.selectItem:hover {
+    background-color: #252525;
+    cursor: pointer;
+}
