@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Select} from "./Select";
 import {ItemType} from "../Accordion/Accordion";
 import {action} from "@storybook/addon-actions";
@@ -15,13 +15,14 @@ const items: ItemType[] = [
 
 const onChangeValue = action('click on label')
 
-export const SelectWithValue = () => <Select changeValue={action('change value')} value={'1'} items={items}/>
+export const SelectWithValue = () => {
+    const [value, setValue] = useState<string>('1')
 
-export const SelectWithoutValue = () => <Select changeValue={action('change value')} items={items}/>
+    return <Select value={value} items={items} changeValue={setValue}/>
+}
 
-export const ControlledSelect = () => {
-    const [value, setValue] = React.useState<string>('');
-    const changeValue = (value: string) => setValue(value);
+export const SelectWithoutValue = () => {
+    const [value, setValue] = useState<string>('')
 
-    return <Select value={value} items={items} changeValue={changeValue}/>
+    return <Select value={value} items={items} changeValue={setValue}/>
 }

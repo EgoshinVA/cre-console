@@ -7,7 +7,7 @@
 }
 
 .select:hover {
-    background-color: #252525;
+    background-color: #424040;
     cursor: pointer;
 }
 
@@ -18,8 +18,15 @@
     margin-bottom: 5px;
 }
 
+.selectedItem {
+    background-color: #252323;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
 .selectItem:hover {
-    background-color: #252525;
+    background-color: #252323;
     cursor: pointer;
 }
 
