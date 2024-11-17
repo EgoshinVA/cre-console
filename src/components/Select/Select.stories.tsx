@@ -15,9 +15,12 @@ const items: ItemType[] = [
 
 const onChangeValue = action('click on label')
 
-export const ControlledSelect = () => {
-    const [value, setValue] = React.useState<string>('Some name');
+export const SelectWithValue = () => <Select changeValue={action('change value')} value={'1'} items={items}/>
 
+export const SelectWithoutValue = () => <Select changeValue={action('change value')} items={items}/>
+
+export const ControlledSelect = () => {
+    const [value, setValue] = React.useState<string>('');
     const changeValue = (value: string) => setValue(value);
 
     return <Select value={value} items={items} changeValue={changeValue}/>
