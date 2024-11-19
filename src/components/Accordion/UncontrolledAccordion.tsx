@@ -13,12 +13,12 @@ type UncontrolledAccordionPropsType = {
 }
 
 export const UncontrolledAccordion = (props: UncontrolledAccordionPropsType) => {
-    const [collapsed, dispatch] = useReducer(reducer, false)
+    const [state, dispatch] = useReducer(reducer, {collapsed: false})
 
     return (
         <div>
             <AccordionTitle changeCollapsed={() => dispatch({type: TOGGLE_CONSTANT})} title={props.title}/>
-            {!collapsed && <AccordionBody onClick={props.onClick} items={props.items}/>}
+            {!state.collapsed && <AccordionBody onClick={props.onClick} items={props.items}/>}
         </div>
     )
 }
@@ -50,5 +50,5 @@ const AccordionBody: React.FC<UncontrolledAccordionBodyPropsType> = (props) => {
                 }} key={i}>{item.title}</li>)}
             </ul>
         </div>
-    )//31 min
+    )
 }
