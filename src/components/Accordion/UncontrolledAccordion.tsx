@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useReducer} from "react";
+import {reducer, TOGGLE_CONSTANT} from "./Reducer";
 
 export type ItemType = {
     title: string
@@ -11,20 +12,12 @@ type UncontrolledAccordionPropsType = {
     onClick: (value: any) => void
 }
 
-type ActionType = {
-    type: string
-}
-
-const reducer = (state: boolean, action: ActionType) => {
-    return state
-}
-
 export const UncontrolledAccordion = (props: UncontrolledAccordionPropsType) => {
-    const [collapsed, setCollapsed] = useState(false)
+    const [collapsed, dispatch] = useReducer(reducer, false)
 
     return (
         <div>
-            <AccordionTitle changeCollapsed={() => setCollapsed(!collapsed)} title={props.title}/>
+            <AccordionTitle changeCollapsed={() => dispatch({type: TOGGLE_CONSTANT})} title={props.title}/>
             {!collapsed && <AccordionBody onClick={props.onClick} items={props.items}/>}
         </div>
     )
@@ -52,8 +45,10 @@ const AccordionBody: React.FC<UncontrolledAccordionBodyPropsType> = (props) => {
     return (
         <div>
             <ul>
-                {props.items.map((item, i) => <li onClick={()=>{props.onClick(item.value)}} key={i}>{item.title}</li>)}
+                {props.items.map((item, i) => <li onClick={() => {
+                    props.onClick(item.value)
+                }} key={i}>{item.title}</li>)}
             </ul>
         </div>
-    )//12 min
+    )//31 min
 }

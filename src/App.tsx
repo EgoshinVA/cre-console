@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
-import {OnOff} from "./components/onOff/OnOff";
 import {Accordion, ItemType} from "./components/Accordion/Accordion";
-import Rating from "./components/Rating/Rating";
 import {UncontrolledAccordion} from "./components/Accordion/UncontrolledAccordion";
+import UncontrolledRating from "./components/Rating/UncontrolledRating";
 
 function App() {
     const [starsCount, setStarsCount] = useState<0 | 1 | 2 | 3 | 4 | 5>(0)
@@ -24,6 +23,7 @@ function App() {
             <UncontrolledAccordion title={'Users'} items={items} onClick={() => {}}/>
             {/*<Rating starsCount={starsCount} changeStarsCount={changeStarsCount}/>*/}
             {/*<OnOff isOn={isOn} changeIsON={changeIsON}/>*/}
+            <UncontrolledRating/>
         </div>
     );
 }
