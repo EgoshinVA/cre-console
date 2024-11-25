@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useMemo, useState} from "react";
 import user from "../components/User/User";
 
 export default {
@@ -9,12 +9,11 @@ const NewMessagesCount = (props: { count: number }) => {
     return <div>{props.count}</div>
 }
 
-const UsersSecret = (props: { users: Array<string> }) => {
+const Users = (props: { users: Array<string> }) => {
     console.log('USERS')
     return <div>{props.users.map((user, i) => <div key={i}>{user}</div>)}</div>
 }
 
-const Users = React.memo(UsersSecret)
 
 export const Example1 = () => {
     const [counter, setCounter] = useState<number>(0)
@@ -24,10 +23,14 @@ export const Example1 = () => {
         setUsers([...users])
     }
 
+    const filteredUsers = useMemo(() => {
+        return users.filter(u => u.length < 10)
+    }, [users])
+
     return <>
         <button onClick={() => setCounter(counter + 1)}>+</button>
         <button onClick={addUser}>add user</button>
         <NewMessagesCount count={counter}/>
-        <Users users={users}/>
+        <Users users={filteredUsers}/>
     </>
 }
