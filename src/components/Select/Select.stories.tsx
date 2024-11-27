@@ -42,7 +42,7 @@ export const SelectWithoutValue = () => {
 export const SelectCitiesUsingUseMemo = () => {
     const [value, setValue] = useState<string>('')
 
-    const filteredSities = (cities: ItemType[], filter: string) => {
+    const filteredCities = (cities: ItemType[], filter: string) => {
         if (filter === 'million') return cities.filter(c => c.value >= 1000000)
         if (filter === 'letterA') return cities.filter(c => c.title.includes('a'))
         if (filter === 'letter4') return cities.filter(c => c.title.length <= 4)
@@ -50,8 +50,8 @@ export const SelectCitiesUsingUseMemo = () => {
     }
 
     return <div style={{display: 'flex'}}>
-        <Select value={value} items={filteredSities(cities, 'million')} changeValue={setValue}/>
-        <Select value={value} items={filteredSities(cities, 'letterA')} changeValue={setValue}/>
-        <Select value={value} items={filteredSities(cities, 'letter4')} changeValue={setValue}/>
+        <Select value={value} items={filteredCities(cities, 'million')} changeValue={setValue}/>
+        <Select value={value} items={filteredCities(cities, 'letterA')} changeValue={setValue}/>
+        <Select value={value} items={filteredCities(cities, 'letter4')} changeValue={setValue}/>
     </div>
 }
