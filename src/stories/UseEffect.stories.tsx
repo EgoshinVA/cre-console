@@ -21,30 +21,34 @@ export default {
 //     </>
 // }
 
-// export const SetTimeoutExample = () => {
-//     const [counter, setCounter] = useState(1)
-//     console.log('SetTimeoutExample')
-//
-//     useEffect(() => {
-//         console.log('useEffect')
-//
-//         // setTimeout(() => {
-//         //     console.log('set timeout')
-//         //     document.title = counter.toString()
-//         // }, 1000)
-//
-//         // setInterval(() => {
-//         //     setCounter(state => state + 1) // замыкание может испортить
-//         // }, 1000)
-//
-//     }, [])
-//
-//
-//     return <>
-//         Hello, {counter}
-//         {/*<button onClick={() => setCounter(counter + 1)}>+</button>*/}
-//     </>
-// }
+export const SetTimeoutExample = () => {
+    const [text, setText] = useState('')
+    console.log('SetTimeoutExample')
+
+    const handler = (e: KeyboardEvent) => {
+        setText(text + e.key)
+    }
+
+    useEffect(() => {
+        console.log('useEffect')
+
+
+        setTimeout(() => {
+            console.log('timeout')
+            window.addEventListener('keypress', handler)
+        }, 0)
+
+        return () => {
+            window.removeEventListener('keypress', handler)
+        }
+
+    }, [text])
+
+
+    return <>
+        Hello, {text}
+    </>
+}
 
 export const SetClockExample = () => {
     return <Clocks type={'analog'}/>
